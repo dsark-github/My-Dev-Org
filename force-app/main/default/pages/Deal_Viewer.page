@@ -1,0 +1,106 @@
+<apex:page standardController="Contact" extensions="ContactExtension">
+    
+        <apex:pageBlock id="DealViewerPage" title="{!Contact.Name}">
+            
+            <apex:pageBlockButtons >
+                <apex:form >
+                    <apex:commandButton value="Done" action="{!navigateToContactDetail}"/>
+                </apex:form>    
+            </apex:pageBlockButtons>
+               
+            <apex:pageBlockSection id="testsec" collapsible="false" title="Total Deal Summary" columns="2">
+                <apex:outputField value="{!Contact.Acceptance_Rate__c}"/>
+                <apex:outputField value="{!Contact.Deals_Accepted__c}"/>
+                <apex:outputField value="{!Contact.Deals_Rejected__c}"/>
+            </apex:pageBlockSection>
+                                
+            <apex:pageBlockSection id="dealDetails" collapsible="false" title="Deals" columns="1">
+                                    
+                <apex:form >
+                                        
+                    <apex:actionFunction name="accept" action="{!acceptMethod}" reRender="DealViewerPage">
+                        <apex:param name="dAId" value=""/>
+                    </apex:actionFunction>
+                    <apex:actionFunction name="reject" action="{!rejectMethod}" reRender="DealViewerPage">    
+                        <apex:param name="dAId" value=""/>
+                    </apex:actionFunction> 
+                                              
+                    <apex:pageBlockTable value="{!dealAction}" var="da" cellspacing="4">
+                       
+                        <apex:column headerValue="Action">
+                            <apex:commandButton disabled="{!IF(da.Disable_Status__c == 'true',true,false)}" value="Accept" onclick="acceptJS('{!da.Id}')"/>
+                            <apex:commandButton disabled="{!IF(da.Disable_Status__c == 'true',true,false)}" value="Reject" onclick="rejectJS('{!da.Id}')"/>                  
+
+                            <!--
+                                                                
+                  <apex:commandButton value="accept" action="{!acceptMethod}">
+                                <apex:param name="dAId" value="{!da.id}" assignTo="{!strDaID }" />
+                            </apex:commandButton>
+                                                                    
+                            <apex:commandButton value="reject" action="{!rejectMethod}">
+                                <apex:param name="dAId" value="{!da.Id}"/>  
+                            </apex:commandButton>     
+                            -->
+                                                   
+                        </apex:column>
+                        <apex:column headerValue="Status" value="{!da.Action__c}"/> 
+                        <apex:column headerValue="Icon">
+                            <apex:image value="{!da.Deal__r.Attachment__c}" width="120" height="80"/>
+                        </apex:column>
+                        <apex:column headerValue="Deal Name" value="{!da.Deal__c}"/>  
+                        <apex:column value="{!da.Deal__r.Valid_Through__c}"/>
+                        <apex:column value="{!da.Deal__r.Available_Deals__c}"/>
+                        
+                    </apex:pageBlockTable>
+                
+                </apex:form>
+            
+            </apex:pageBlockSection>
+                                                                                        
+        </apex:pageBlock>
+                                           
+        <script>
+       
+           function acceptJS(dealAcId){
+               console.log('log: ' + dealAcId);          
+               accept(dealAcId);
+                                                                                            
+           }
+                                                                                        
+           function rejectJS(dealAcId){
+               reject(dealAcId);
+           } 
+    
+    </script>     
+    
+    
+    
+</apex:page>
+
+
+
+
+
+<!--
+
+
+
+
+
+
+public list<Deal__c> getavailabledeals(){
+       list<Deal__c> d=new list<Deal__c>();
+       d=[SELECT id,name,available_deals__c,valid_through__c,attachment__c FROM Deal__c WHERE valid_through__c>=: system.today() and available_deals__c>0 ORDER BY valid_through__c,available_deals__c,name];
+       for(Deal__c d1 : d){
+           if(d1.attachment__c==null){ 
+               d1.attachment__c='https://c.ap2.visual.force.com/resource/1474449208000/Generic_Fish';
+           }   
+       }
+       return d;
+   } 
+
+
+
+
+
+-->

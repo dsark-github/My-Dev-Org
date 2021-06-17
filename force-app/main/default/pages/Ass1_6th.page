@@ -1,0 +1,18 @@
+<apex:page standardController="Employee__c">
+  <apex:pageBlock title="New Employee Registration">
+      <apex:form >
+          <apex:pageBlockSection title="Enter Details of the Employee:">
+              First Name: <apex:inputField value="{!Employee__c.First_Name__c}" required="true"/>
+              Last Name: <apex:inputField value="{!Employee__c.Last_Name__c}" required="true"/>
+              Email: <apex:inputField value="{!Employee__c.Email__c}" required="true"/>
+              Date of Joining: <apex:inputField value="{!Employee__c.Date_of_Joining__c}"/>
+              Country: <apex:inputField value="{!Employee__c.Country__c}"/>
+              State: <apex:inputField value="{!Employee__c.States__c}"/>
+          </apex:pageBlockSection>
+          <apex:pageBlockSection >
+              <apex:commandButton value="Save" action="{!save}"/>
+          </apex:pageBlockSection>
+      </apex:form>
+      
+  </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,16 @@
+<apex:page standardController="Deal__c">
+    <apex:pageBlock title="Enter Details of New Deal">
+        <apex:form >
+            <apex:pageBlockSection columns="1">
+                <apex:inputField value="{!Deal__c.Name}"/>
+            <!--    <apex:inputField value="{!Deal__c.Owner}"/> -->
+                <apex:inputField value="{!Deal__c.Valid_Through__c}"/>
+                <apex:inputField value="{!Deal__c.Max_Acceptances__c}"/>
+                <apex:inputField value="{!Deal__c.Attachment__c}"/>
+            </apex:pageBlockSection>
+          
+            <apex:commandButton value="Save" action="{!save}"/>
+           
+        </apex:form>
+    </apex:pageBlock>
+</apex:page>
