@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Reminder_to_approve_invoice</fullName>
+        <description>Reminder to approve invoice</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>diganta@salesforce2k16.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/reminder_to_approve_invoice</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_intimation_of_new_invoice_created</fullName>
+        <description>Send intimation of new invoice created</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>diganta@salesforce2k16.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Alert_new_invoice_creation</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>update_inv_status</fullName>
+        <field>Status__c</field>
+        <literalValue>Awaiting Approval</literalValue>
+        <name>update inv status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>update_inv_status_to_in_process</fullName>
+        <field>Status__c</field>
+        <literalValue>In Process</literalValue>
+        <name>update inv status to in process</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Reminder to approve invoice</fullName>
+        <active>true</active>
+        <formula>ISPICKVAL(Status__c, &apos;Awaiting Approval&apos;)</formula>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Reminder_to_approve_invoice</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Invoice1__c.CreatedDate</offsetFromField>
+            <timeLength>2</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send email alert for new invoice</fullName>
+        <actions>
+            <name>Send_intimation_of_new_invoice_created</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>True</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

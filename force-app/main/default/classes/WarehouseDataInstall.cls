@@ -1,4 +1,3 @@
-//Created by DSARK01
 public with sharing class WarehouseDataInstall {
 
     public WarehouseDataInstall() {}

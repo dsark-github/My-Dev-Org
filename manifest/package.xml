@@ -293,5 +293,5 @@
 		<members>*</members>
 		<name>Workflow</name>
 	</types>
-	<version>44.0</version>
+	<version>51.0</version>
 </Package>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Alert_to_Manager_About_New_Leave_Application</fullName>
+        <description>Alert to Manager About New Leave Application</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>diganta@salesforce2k16.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Alert_New_Leave_Record_Creation</template>
+    </alerts>
+    <alerts>
+        <fullName>Reminder_to_Approve_Leave</fullName>
+        <description>Reminder to Approve Leave</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>diganta@salesforce2k16.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Reminder_to_Approve_Leave</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Leave_Status_Update</fullName>
+        <field>Leave_Status__c</field>
+        <literalValue>Pending</literalValue>
+        <name>Leave Status Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Alert New Leave Application Creation</fullName>
+        <actions>
+            <name>Alert_to_Manager_About_New_Leave_Application</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>True</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Reminder to Approve Leave</fullName>
+        <active>true</active>
+        <formula>AND(TODAY()- DATEVALUE(CreatedDate) = 2, ISPICKVAL( Leave_Status__c , &apos;Pending&apos;) )</formula>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Reminder_to_Approve_Leave</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Leave_Applications__c.CreatedDate</offsetFromField>
+            <timeLength>2</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Update Leave Status to Pending</fullName>
+        <actions>
+            <name>Leave_Status_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>True</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

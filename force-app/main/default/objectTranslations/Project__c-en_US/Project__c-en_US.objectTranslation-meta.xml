@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Project</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Projects</value>
+    </caseValues>
+    <recordTypes>
+        <label></label>
+        <name>For_11_X</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>For_7_X</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Kickoff_Date_After_End_Date</name>
+    </validationRules>
+</CustomObjectTranslation>
