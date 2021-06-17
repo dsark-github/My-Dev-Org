@@ -1,6 +1,6 @@
 @isTest
 public class AddPrimaryContactTest {
-    
+    //This is a setup method
     @testSetup static void setupMethod(){
         List<Account> accounts = new List<Account>();
         for(Integer i=0;i<50;i++){
