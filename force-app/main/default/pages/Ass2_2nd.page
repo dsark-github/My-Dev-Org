@@ -1,0 +1,24 @@
+<apex:page standardController="Employee__c" recordSetVar="employees">
+    
+    <apex:pageBlock title="Records of Employees:">
+    
+        <apex:pageBlockTable value="{!employees}" var="emp">
+           
+            <apex:column value="{!emp.name}"/>
+            
+            <apex:column headerValue="Name">
+              <apex:outputLink value="apex/Ass2_2nda">
+                  {!emp.Full_Name__c}
+                  <apex:param name="empId" value="{!emp.id}"/>
+              </apex:outputLink>
+            </apex:column> 
+            
+            <apex:column value="{!emp.Contact__c}"/>
+            <apex:column value="{!emp.Country__c}"/>
+            
+        </apex:pageBlockTable>
+        
+    </apex:pageBlock>
+        
+    
+</apex:page>

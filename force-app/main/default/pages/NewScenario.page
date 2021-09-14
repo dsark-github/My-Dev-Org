@@ -1,0 +1,17 @@
+<apex:page standardController="contact" recordSetVar="contacts">
+    <apex:form >
+        <apex:pageBlock title="Contact Details">  
+            <apex:pageBlockTable value="{!contacts}" var="con">
+                <apex:column >
+                    <apex:commandLink rerender="DetailsPageId">
+                        {!con.name}
+                        <apex:param name="cid" value="{!con.id}"/>
+                    </apex:commandLink>
+                </apex:column>
+            </apex:pageBlockTable>     
+        </apex:pageBlock>
+        <apex:pageBlock id="DetailsPageId">
+            <apex:detail subject="{!$CurrentPage.parameters.cid}" relatedList="false" title="false"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,21 @@
+<apex:page standardController="Employee__c" showHeader="true">
+    
+    <style>
+    .activeTab {background-color: #236FBD; color:white; background-image:none}
+    .inactiveTab { background-color: lightgrey; color:black; background-image:none}
+    .contentClass {font-weight: bold}
+    </style>
+    
+    <apex:tabPanel switchType="client" tabClass="activeTab" inactiveTabClass="inactiveTab" selectedTab="EmployeeTab" contentClass="contentClass">
+        <apex:tab label="Employee" name="EmployeeTab">
+            <apex:outputText value="Employee Name: "/> <apex:outputField value="{!Employee__c.Full_Name__c}"/>
+        </apex:tab>     
+        <apex:tab label="Leave Details" name="LeaveTab">
+            <apex:outputText value="Employee Name: "/> <apex:outputField value="{!Employee__c.Full_Name__c}"/> <br/>
+            <apex:outputText value="Total Leaves: "/> <apex:outputField value="{!Employee__c.Total_Leaves__c}"/> <br/>
+            <apex:outputText value="Total Leaves Availed: "/> <apex:outputField value="{!Employee__c.Total_Leaves_Availed__c}"/> <br/>
+            <apex:outputText value="Balance Leaves: "/> <apex:outputField value="{!Employee__c.Balance_Leaves__c}"/> <br/>
+        </apex:tab>        
+    </apex:tabPanel>
+    
+</apex:page>

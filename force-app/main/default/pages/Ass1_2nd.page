@@ -1,0 +1,9 @@
+<apex:page >
+
+  <apex:pageBlock >
+      <apex:pageblockSection >
+          Hello {!$User.FirstName}
+      </apex:pageblockSection>
+  </apex:pageBlock>
+
+</apex:page>

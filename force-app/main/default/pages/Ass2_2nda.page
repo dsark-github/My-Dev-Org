@@ -1,0 +1,19 @@
+<apex:page controller="MyEmpExt">
+  
+  <!-- <apex:detail subject="{!$CurrentPage.parameters.empId}"/>  -->
+  
+ 
+  <apex:pageBlock title="Details of {!Employee.name}">
+      <apex:form >
+          Employee No.: <apex:inputField value="{!Employee.name}"/> <br/>
+          Name: <apex:inputField value="{!Employee.Full_Name__c}"/> <br/>
+          Contact No.: <apex:inputField value="{!Employee.Contact__c}"/> <br/>
+          Country: <apex:inputField value="{!Employee.Country__c}"/> <br/>
+          State: <apex:inputField value="{!Employee.States__c}"/> <br/>
+          <apex:pageBlockSection >
+              <apex:commandButton value="Save Data" action="{!save}"/>
+          </apex:pageBlockSection>
+      </apex:form>    
+  </apex:pageBlock>
+ 
+</apex:page>

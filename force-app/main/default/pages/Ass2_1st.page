@@ -1,0 +1,11 @@
+<apex:page controller="MyFirstClass">
+
+  <apex:pageBlock title="Names of Months">
+  
+      <apex:repeat value="{!Months}" var="m">
+          <apex:outputText value="{!m}"/> <br/>
+      </apex:repeat>
+      
+  </apex:pageBlock>
+  
+</apex:page>

@@ -1,0 +1,4 @@
+<apex:page standardController="Account">
+<p>Here's the Ticker Symbol field: {! account.TickerSymbol}</p>
+<p>Here's the owner of this account: {! account.Owner.Name}</p>
+</apex:page>

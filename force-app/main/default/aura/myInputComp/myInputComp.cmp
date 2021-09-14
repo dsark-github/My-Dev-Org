@@ -1,0 +1,10 @@
+<aura:component controller="myTextHandler">
+	
+    <aura:attribute name="myText" type="String"/>
+    
+    <lightning:input aura:id="myTextField" name="SomeText" label="Some Text"
+                  value="{!v.myText}"/>
+
+     <lightning:button label="Submit" onclick="{!c.transforString}" class="slds-m-top_medium"/>
+    
+</aura:component>
