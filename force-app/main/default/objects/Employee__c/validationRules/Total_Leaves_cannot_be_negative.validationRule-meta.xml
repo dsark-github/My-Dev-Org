@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Leaves_cannot_be_negative</fullName>
+    <active>true</active>
+    <errorConditionFormula>Total_Leaves__c  &lt; 0</errorConditionFormula>
+    <errorDisplayField>Total_Leaves__c</errorDisplayField>
+    <errorMessage>Total Leaves cannot be negative!!</errorMessage>
+</ValidationRule>

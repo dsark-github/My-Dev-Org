@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Applied_Leaves_more_than_Total_Leaves</fullName>
+    <active>true</active>
+    <errorConditionFormula>Number_of_Days__c  &gt;  Employee_No__r.Total_Leaves__c</errorConditionFormula>
+    <errorMessage>Applied Leaves cannot be more than total leaves available!!</errorMessage>
+</ValidationRule>

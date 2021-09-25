@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deatil</fullName>
+    <columns>NAME</columns>
+    <columns>Deal__c</columns>
+    <columns>Action__c</columns>
+    <columns>Contact__c</columns>
+    <columns>Disable_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Deatil</label>
+</ListView>

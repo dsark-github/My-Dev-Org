@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>standard-home</defaultLandingTab>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Palmer Pets Manager</label>
+    <logo>Palmer_Pets/Palmer_Pets_Logo.jpg</logo>
+    <tabs>standard-Contact</tabs>
+    <tabs>Deal_Action__c</tabs>
+    <tabs>Deal__c</tabs>
+    <tabs>Expense__c</tabs>
+    <tabs>Camping_Item__c</tabs>
+    <tabs>Tower__c</tabs>
+</CustomApplication>

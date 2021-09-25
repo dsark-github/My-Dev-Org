@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Leave Application</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Leave Applications</value>
+    </caseValues>
+    <layouts>
+        <layout>Leave Application Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Applied_Leaves_more_than_Total_Leaves</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>To_date_less_than_From_date</name>
+    </validationRules>
+</CustomObjectTranslation>
