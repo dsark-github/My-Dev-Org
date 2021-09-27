@@ -5,7 +5,7 @@ private class TestAccountDeletion {
         // Create one account with one opportunity by calling a utility method
         Account[] accts = TestDataFactory.createAccountsWithOpps(1,1);
         
-        // Perform test
+        // Perform test below
         Test.startTest();
         Database.DeleteResult result = Database.delete(accts[0], false);
         Test.stopTest();
