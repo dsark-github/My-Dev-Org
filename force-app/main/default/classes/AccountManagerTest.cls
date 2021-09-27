@@ -12,6 +12,7 @@ public class AccountManagerTest {
         Account accountFetched = AccountManager.getAccount();
         // Verify results
         System.assert(accountFetched != null);
+        //Verifying account name (Adding comment for test on FeatureBranch1) 
         System.assertEquals('Test Account', accountFetched.Name);
     }
     
