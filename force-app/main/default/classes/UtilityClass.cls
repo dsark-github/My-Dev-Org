@@ -18,5 +18,6 @@ public inherited sharing class UtilityClass {
           }
           String theQueryResult = string.escapeSingleQuotes(theQuery);  //escapes the string
           return database.query(theQueryResult);
+          //test comment
      }
 }
